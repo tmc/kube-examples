@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang
+    working_directory: /go/src/github.com/tmc/kube-examples
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: go get ./... && go install ./...
